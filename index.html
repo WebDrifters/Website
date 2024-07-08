@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Designing Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        /* Resetting default browser styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5; /* Light Grey */
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1400px; /* Increased max-width */
+            margin: 0 auto;
+            padding: 20px; /* Increased padding */
+        }
+
+        /* Header */
+        header {
+            background-color: #ffffff; /* White */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Align items to the left and right */
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            color: #1a2b3c; /* Navy Blue */
+        }
+
+        nav {
+            flex: 1;
+            text-align: right; /* Align items to the right */
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end; /* Align items to the right */
+            height: 40px; /* Reduced height */
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #1a2b3c; /* Navy Blue */
+            font-size: 1rem;
+            font-weight: bold; /* Added font weight for emphasis */
+            transition: color 0.3s;
+            padding: 8px 12px; /* Added padding to make the clickable area larger */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .nav-links li a:hover {
+            color: #e74c3c; /* Red */
+            background-color: #f5f5f5; /* Light Grey background on hover */
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        .menu-toggle i {
+            font-size: 1.5rem;
+            color: #1a2b3c; /* Navy Blue */
+        }
+
+        /* Main Content Sections */
+        .hero-section {
+            background-color: #2A9D8F; /* Red */
+            color: #ffffff;
+            padding: 120px 0; /* Increased padding */
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+        }
+
+        .hero-image {
+            margin-bottom: 40px;
+            margin: 40px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #1a2b3c; /* Navy Blue */
+            color: #ffffff;
+            padding: 15px 30px; /* Increased padding */
+            font-size: 1rem;
+            border-radius: 30px; /* Rounded corners */
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #e74c3c; /* Red */
+        }
+
+        .services-section {
+            background-color: #ffffff; /* White */
+            padding: 200px 0; /* Increased padding */
+            text-align: center;
+        }
+
+        .services-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #1a2b3c; /* Navy Blue */
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .service {
+            width: 300px;
+            margin-bottom: 30px;
+            background-color: #f9f9f9; /* Light Grey */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .service h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #1a2b3c; /* Navy Blue */
+        }
+
+        .service p {
+            color: #666666;
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: #f5f5f5; /* Light Grey */
+            padding: 200px 0; /* Increased padding */
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #1a2b3c; /* Navy Blue */
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #666666;
+        }
+
+        .about-image {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #ffffff; /* White */
+            padding: 100px 0; /* Increased padding */
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #1a2b3c; /* Navy Blue */
+        }
+
+        .contact-section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #666666;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #1a2b3c; /* Navy Blue */
+            font-size: 2rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #e74c3c; /* Red */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a2b3c; /* Navy Blue */
+            color: #ffffff;
+            padding: 50px 0; /* Increased padding */
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column; /* Stack items vertically */
+                align-items: flex-start; /* Align items to the left */
+            }
+
+            .logo-container {
+                margin-bottom: 10px; /* Space between logo and menu */
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #ffffff; /* White */
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+                z-index: 1000;
+                height: auto; /* Auto height for mobile menu */
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center; /* Center align for mobile */
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="log.png" alt="">
+                    <h1 class="site-title">WebDrifters</h1>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <div class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <h1>Welcome to Web Drifters</h1>
+                <p>Your Partner in Creating Stunning Websites</p>
+                <a href="#" class="button">Get Started</a>
+                <div class="hero-image">
+                    <img src="webdesign.png" alt="Web Design">
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services">
+                    <div class="service">
+                        <h3>Custom Web Design</h3>
+                        <p>We create unique, custom-designed websites tailored to your brand, ensuring a distinctive online presence that captivates your audience.</p>
+                    </div>
+                    <div class="service">
+                        <h3>Web Hosting & Domains</h3>
+                        <p>We will host your websites and provide you with your desired domain names, offering reliable and secure hosting solutions.</p>
+                    </div>
+                    <div class="service">
+                        <h3>Major Projects</h3>
+                        <p>We manage and execute large-scale web development projects, bringing your ambitious visions to life with precision and expertise.</p>
+                    </div>
+                    <div class="service">
+                        <h3>Website Maintenance</h3>
+                        <p>Keep your website up-to-date and secure with our comprehensive maintenance services, ensuring optimal performance and security.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About Us</h2>
+                <div class="about-content">
+                    <p>At WebDrifters, we are dedicated to creating stunning and effective websites that help businesses thrive online. With years of experience in the industry, our team of expert designers and developers are committed to delivering top-notch web solutions tailored to meet your unique needs.</p>
+                    <p>We believe in the power of a strong online presence and work diligently to ensure your website not only looks great but also performs exceptionally well. Our goal is to help you achieve your business objectives through innovative design, cutting-edge technology, and a customer-centric approach.</p>
+                </div>
+                <div class="about-image">
+                    <img src="about-us.jpg" alt="About Us">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Follow us on our social media platforms:</p>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 WebDrifters. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for toggling the mobile menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        navItems.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetPosition = document.querySelector(targetId).offsetTop;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 1000;
+                let start = null;
+
+                window.requestAnimationFrame(function step(currentTime) {
+                    if (!start) start = currentTime;
+                    const progress = currentTime - start;
+                    window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
+                    if (progress < duration) window.requestAnimationFrame(step);
+                });
+
+                function easeInOutCubic(t, b, c, d) {
+                    t /= d/2;
+                    if (t < 1) return c/2*t*t*t + b;
+                    t -= 2;
+                    return c/2*(t*t*t + 2) + b;
+                }
+
+                navLinks.classList.remove('active'); // Close mobile menu after click
+            });
+        });
+    </script>
+</body>
+</html>
