@@ -356,7 +356,7 @@
             <div class="container">
                 <h1>Welcome to Web Drifters</h1>
                 <p>Your Partner in Creating Stunning Websites</p>
-                <a href="#" class="button">Get Started</a>
+                <a href="#contact" class="button">Get Started</a>
                 <div class="hero-image">
                     <img src="https://github.com/WebDrifters/Website/blob/main/webdesign.png" alt="Web Design">
                 </div>
@@ -416,70 +416,99 @@
         </div>
     </footer>
 
-    <script>
-        // JavaScript for toggling the mobile menu
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+<script>
+    // JavaScript for toggling the mobile menu
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
 
-        // Smooth scrolling for navigation links
-        const navItems = document.querySelectorAll('.nav-links a');
+    // Smooth scrolling for navigation links
+    const navItems = document.querySelectorAll('.nav-links a');
 
-        navItems.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
+    navItems.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
 
-                const targetId = this.getAttribute('href');
-                const targetPosition = document.querySelector(targetId).offsetTop;
-                const startPosition = window.pageYOffset;
-                const distance = targetPosition - startPosition;
-                const duration = 1000;
-                let start = null;
+            const targetId = this.getAttribute('href');
+            const targetPosition = document.querySelector(targetId).offsetTop;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 1000;
+            let start = null;
 
-                window.requestAnimationFrame(function step(currentTime) {
-                    if (!start) start = currentTime;
-                    const progress = currentTime - start;
-                    window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
-                    if (progress < duration) window.requestAnimationFrame(step);
-                });
-
-                function easeInOutCubic(t, b, c, d) {
-                    t /= d/2;
-                    if (t < 1) return c/2*t*t*t + b;
-                    t -= 2;
-                    return c/2*(t*t*t + 2) + b;
-                }
-
-                navLinks.classList.remove('active'); // Close mobile menu after click
+            window.requestAnimationFrame(function step(currentTime) {
+                if (!start) start = currentTime;
+                const progress = currentTime - start;
+                window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
+                if (progress < duration) window.requestAnimationFrame(step);
             });
+
+            function easeInOutCubic(t, b, c, d) {
+                t /= d/2;
+                if (t < 1) return c/2*t*t*t + b;
+                t -= 2;
+                return c/2*(t*t*t + 2) + b;
+            }
+
+            navLinks.classList.remove('active'); // Close mobile menu after click
+        });
+    });
+
+    // Smooth scrolling for "Get Started" button
+    const getStartedButton = document.querySelector('.hero-section .button');
+
+    getStartedButton.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetPosition = document.querySelector(targetId).offsetTop;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        const duration = 1000;
+        let start = null;
+
+        window.requestAnimationFrame(function step(currentTime) {
+            if (!start) start = currentTime;
+            const progress = currentTime - start;
+            window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
+            if (progress < duration) window.requestAnimationFrame(step);
         });
 
-        // JavaScript for fade-up effect
-        const faders = document.querySelectorAll('.services-section, .about-section, .contact-section');
+        function easeInOutCubic(t, b, c, d) {
+            t /= d/2;
+            if (t < 1) return c/2*t*t*t + b;
+            t -= 2;
+            return c/2*(t*t*t + 2) + b;
+        }
+    });
 
-        const appearOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
+    // JavaScript for fade-up effect
+    const faders = document.querySelectorAll('.services-section, .about-section, .contact-section');
 
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.classList.add('active');
-                    appearOnScroll.unobserve(entry.target);
-                }
-            });
-        }, appearOptions);
+    const appearOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
 
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('active');
+                appearOnScroll.unobserve(entry.target);
+            }
         });
-    </script>
+    }, appearOptions);
+
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
+</script>
+
 </body>
 </html>
 
