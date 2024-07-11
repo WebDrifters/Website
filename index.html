@@ -139,8 +139,8 @@
         }
 
         .button:focus {
-    outline: none; /* Remove default focus outline */
-}
+            outline: none; /* Remove default focus outline */
+        }
 
         .services-section {
             background-color: #ffffff; /* White */
@@ -262,6 +262,7 @@
 
         .social-icons {
             margin-top: 20px;
+            position: relative;
         }
 
         .social-icons a {
@@ -269,10 +270,68 @@
             font-size: 2rem;
             margin: 0 10px;
             transition: color 0.3s;
+            cursor: pointer;
         }
 
         .social-icons a:hover {
             color: #e74c3c; /* Red */
+        }
+
+        /* Modal styles */
+       .modal {
+    display: none; /* Initially hide the modal */
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.5s;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s;
+    position: relative; /* Ensure relative positioning */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1002; /* Ensure it's above modal content */
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes slideIn {
+            from {transform: translateY(-50px);}
+            to {transform: translateY(0);}
         }
 
         /* Footer */
@@ -391,14 +450,15 @@
         <section id="about" class="about-section">
             <div class="container">
                 <h2>About Us</h2>
-               <div class="about-content">
-    <center>
-        <p>At WebDrifters, we are dedicated to creating stunning and effective websites that help businesses thrive online.</p>
-        <p>We believe in the power of a strong online presence and work diligently to ensure your website not only looks top notch but also exceeds your expectations. Our goal is to help you achieve your business objectives through innovative design, cutting-edge technology, and a customer-centric approach.</p>
-        <p>With a passion for creativity and a commitment to quality, we collaborate closely with our clients to understand their unique needs and deliver tailored solutions that exceed expectations. Whether you're launching a new venture or revitalizing an existing brand, WebDrifters is here to transform your vision into a compelling online reality.</p>
-        <p>Join us on this journey to success. Let's build something extraordinary together.</p>
-    </center>
-</div>
+                <div class="about-content">
+                    <center>
+                        <p>At WebDrifters, we are dedicated to creating stunning and effective websites that help businesses thrive online.</p>
+                        <p>We believe in the power of a strong online presence and work diligently to ensure your website not only looks top notch but also exceeds your expectations. Our goal is to help you achieve your business objectives through innovative design, cutting-edge technology, and a customer-centric approach.</p>
+                        <p>With a passion for creativity and a commitment to quality, we collaborate closely with our clients to understand their unique needs and deliver tailored solutions that exceed expectations. Whether you're launching a new venture or revitalizing an existing brand, WebDrifters is here to transform your vision into a compelling online reality.</p>
+                        <p>Join us on this journey to success. Let's build something extraordinary together.</p>
+                    </center>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -409,7 +469,7 @@
             <div class="social-icons">
                 <a href="https://x.com/Web_Drifters" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.instagram.com/web_drifters/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="" target="_blank"><i class="fab fa-google"></i></a>
+                <a href="javascript:void(0);" onclick="showEmailModal()"><i class="fab fa-google"></i></a>
             </div>
         </div>
     </section>
@@ -420,6 +480,13 @@
         </div>
     </footer>
 
+    <!-- Modal HTML -->
+<div id="emailModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEmailModal()">&times;</span>
+        <p>Contact us at: <strong>contactwebdrifters@gmail.com</strong></p>
+    </div>
+</div>
 <script>
     // JavaScript for toggling the mobile menu
     const menuToggle = document.querySelector('.menu-toggle');
@@ -511,8 +578,26 @@
     faders.forEach(fader => {
         appearOnScroll.observe(fader);
     });
+
+    // JavaScript to show email modal
+    function showEmailModal() {
+        const modal = document.getElementById('emailModal');
+        modal.style.display = 'block';
+    }
+
+    function closeEmailModal() {
+        const modal = document.getElementById('emailModal');
+        modal.style.display = 'none';
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById('emailModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
 </script>
 
 </body>
 </html>
-
